@@ -37,12 +37,12 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalized)
 
 conn = snowflake.connector.connect(
-  user=matthewking72,
-  password=KaylaSnowflake1!,
-  account=om80032,
-  warehouse=COMPUTE_WH,
-  database=GARDEN_PLANTS,
-  schema=VEGGIES
+  user="matthewking72",
+  password="KaylaSnowflake1!",
+  account="om80032",
+  warehouse="COMPUTE_WH",
+  database="GARDEN_PLANTS",
+  schema="VEGGIES"
 )
 
 conn.cursor().execute("SELECT * FROM ROOT_DEPTH")
