@@ -1,6 +1,7 @@
 import streamlit
 import pandas
 import requests
+import snowflake.connector
 
 streamlit.title('My Parents New Healthy Diner')
 
@@ -34,3 +35,14 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_c
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # show the dataframe
 streamlit.dataframe(fruityvice_normalized)
+
+conn = snowflake.connector.connect(
+  user=matthewking72,
+  password=KaylaSnowflake1!,
+  account=om80032,
+  warehouse=COMPUTE_WH,
+  database=GARDEN_PLANTS,
+  schema=VEGGIES
+)
+
+conn.cursor().execute("SELECT * FROM ROOT_DEPTH")
